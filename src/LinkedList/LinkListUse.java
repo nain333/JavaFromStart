@@ -15,16 +15,16 @@ public class LinkListUse {
 
     }
     public static void main(String[] args) {
-        Node<Integer> head =takeInput();
+        Node<Integer> head =takeInputOptimally();
 
 
-        Node<Integer> n = new Node<>(10);
-        System.out.println(n);
-        System.out.println(n.data);
-        System.out.println(n.next);
+//        Node<Integer> n = new Node<>(10);
+//        System.out.println(n);
+//        System.out.println(n.data);
+//        System.out.println(n.next);
         print(head);
-        System.out.println(length(head));
-        printIthNodde(head,2);
+//        System.out.println(length(head));
+//        printIthNodde(head,2);
     }
     public static void print(Node<Integer> head){
         Node<Integer> temp=head;
@@ -86,6 +86,31 @@ public class LinkListUse {
         }
 
         return head;
+//        The time complexity is O(n^2)
+    }
+    public static Node<Integer> takeInputOptimally(){
+        Scanner sc = new Scanner(System.in);
+        Node<Integer> head = null,tail=null;
+        int data = sc.nextInt();
+        while(data!=-1){
+            Node<Integer> currneNode=new Node<>(data);
+            if (head==null){
+//                make currentNode=head
+//                make currentNode=tail
+                head=currneNode;
+                tail=currneNode;
+            }
+            else{
+                tail.next=currneNode;
+                tail=currneNode;
+            }
+            data=sc.nextInt();
+
+
+        }
+        return head;
+
+
     }
 
 }
